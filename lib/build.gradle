@@ -15,7 +15,7 @@ gradle.projectsEvaluated {
 android {
     namespace 'org.spatialite'
     compileSdk 34
-    ndkVersion '23.0.7599858'
+    ndkVersion '23.2.8568313'
 
     defaultConfig {
         minSdk 21
@@ -117,7 +117,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.dalgarins'
             artifactId = 'android-spatialite'
-            version = '2.1.2-ndk23-alpha'
+            version = '2.1.2-ndk23.2.8568313'
 
             afterEvaluate {
                 from components.release

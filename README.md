@@ -97,6 +97,11 @@ Min SDK 21
 
 ## CHANGES
 
+### 2.1.2-ndk23.2.8568313 (minSdkVersion 23)
+- Upgrade minSdkVersion to 23
+- Upgrade targetSdkVersion to 34
+- Fix compatibility with mapbox v11 min ndk version 23
+
 ### 2.1.2-ndk23-alpha (minSdkVersion 23)
 - Upgrade minSdkVersion to 23
 - Upgrade targetSdkVersion to 34
