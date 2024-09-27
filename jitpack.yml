@@ -3,3 +3,4 @@ before_install:
   - sdk use java 17.0.11-jbr
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-34"
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;34.0.0"
+  - yes | $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;23.2.8568313"
