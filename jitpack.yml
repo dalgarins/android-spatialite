@@ -1,6 +1,8 @@
 before_install:
   - sdk install java 17.0.11-jbr
   - sdk use java 17.0.11-jbr
-  - curl -L -o ndk.zip "https://dl.google.com/android/repository/android-ndk-r23c-linux.zip" && unzip -o ndk.zip -d /opt/android-sdk-linux/ndk-bundle && rm ndk.zip
+  - rm -rf /opt/android-sdk-linux/ndk-bundle
+  - curl -L -o ndk.zip "https://dl.google.com/android/repository/android-ndk-r23c-linux.zip" && unzip -o ndk.zip -d /opt/android-sdk-linux && rm ndk.zip
+  - mv /opt/android-sdk-linux/android-ndk-r23c /opt/android-sdk-linux/ndk-bundle
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-34"
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;34.0.0"
