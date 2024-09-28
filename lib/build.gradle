@@ -62,7 +62,10 @@ tasks.register('installSqlite', Copy) {
     into 'src/main/jni/ndk-modules/sqlite'
 }
 
-def ndkDir = System.getenv("NDK_HOME")
+def ndkDir = System.getenv("JITPACK_NDK_HOME")
+if (ndkDir == null) {
+    ndkDir = System.getenv("NDK_HOME")
+}
 if (ndkDir == null) {
     def propertiesFile = project.rootProject.file('local.properties')
     if (propertiesFile.exists()) {
