@@ -8,20 +8,22 @@ plugins {
 
 group = 'com.github.dalgarins'
 
-gradle.projectsEvaluated {
-    preBuild.dependsOn(buildSqlite)
-}
-
 android {
     namespace 'org.spatialite'
     compileSdk 34
-    ndkVersion '21.0.6113669'
+    ndkVersion '27.3.13750724'
 
     defaultConfig {
         minSdk 21
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            ndkBuild {
+                arguments "-j8", "V=1"
+            }
+        }
     }
 
     buildTypes {
@@ -42,6 +44,12 @@ android {
     }
 
     sourceSets.main.jni.srcDirs = ['src/main/none']
+
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
+    }
 }
 
 ext {
@@ -62,46 +70,7 @@ tasks.register('installSqlite', Copy) {
     into 'src/main/jni/ndk-modules/sqlite'
 }
 
-def ndkDir = System.getenv("NDK_HOME")
-if (ndkDir == null) {
-    def propertiesFile = project.rootProject.file('local.properties')
-    if (propertiesFile.exists()) {
-        Properties properties = new Properties()
-        properties.load(propertiesFile.newDataInputStream())
-        ndkDir = properties.getProperty('ndk.dir')
-        if (ndkDir == null) {
-            throw GradleScriptException("Either NDK_HOME or ndk.dir in local.properties should point to Android NDK!")
-        }
-    } else {
-        throw GradleScriptException("Either NDK_HOME or ndk.dir in local.properties should point to Android NDK!")
-    }
-}
-
-tasks.register('buildSqlite', Exec) {
-    dependsOn installSqlite
-    println("NDK directory: $ndkDir")
-
-    // Add NDK_DEBUG=1 for debug symbols or V=1 for verbose building output
-    if (OperatingSystem.current().linux) {
-        commandLine "$ndkDir/ndk-build", '-j8', '-C', file('src/main/jni').absolutePath
-    } else if (OperatingSystem.current().windows) {
-        commandLine "$ndkDir/ndk-build.cmd", '-j8', '-C', file('src/main/jni').absolutePath
-    } else {
-        commandLine "$ndkDir/ndk-build", '-j8', '-C', file('src/main/jni').absolutePath
-    }
-}
-
-tasks.register('ndkClean', Exec) {
-    if (OperatingSystem.current().linux) {
-        commandLine "$ndkDir/ndk-build", 'clean', '-C', file('src/main/jni').absolutePath
-    } else if (OperatingSystem.current().windows) {
-        commandLine "$ndkDir/ndk-build.cmd", 'clean', '-C', file('src/main/jni').absolutePath
-    } else {
-        commandLine "$ndkDir/ndk-build", 'clean', '-C', file('src/main/jni').absolutePath
-    }
-}
-
-clean.dependsOn 'ndkClean'
+preBuild.dependsOn installSqlite
 
 dependencies {
 
