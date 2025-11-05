@@ -97,7 +97,7 @@ Min SDK 21
 
 ## CHANGES
 
-### 2.1.3 (minSdkVersion 23)
+### 2.2.0 (minSdkVersion 23)
 - Upgrade minSdkVersion to 23
 - Upgrade targetSdkVersion to 36
 - Support android size 16kb

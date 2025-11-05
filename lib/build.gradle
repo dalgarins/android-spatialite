@@ -86,7 +86,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.dalgarins'
             artifactId = 'android-spatialite'
-            version = '2.1.3'
+            version = '2.2.0'
 
             afterEvaluate {
                 from components.release
