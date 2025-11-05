@@ -34,7 +34,7 @@ include $(BUILD_SHARED_LIBRARY)
 # The library concrete version subfolder name must match its .mk file.
 # E.g. libxml2-2.9.2/ -> libxml2-2.9.2.mk
 
-NDK_MODULES_PATH := ndk-modules
+NDK_MODULES_PATH := $(LOCAL_PATH)/ndk-modules
 
 SPATIALITE_PATH := libspatialite-4.3.0a
 PROJ4_PATH := proj-4.8.0
