@@ -97,6 +97,21 @@ Min SDK 21
 
 ## CHANGES
 
+### 2.1.3 (minSdkVersion 23)
+- Upgrade minSdkVersion to 23
+- Upgrade targetSdkVersion to 36
+- Support android size 16kb
+
+### 2.1.2-ndk-r23c (minSdkVersion 23)
+- Upgrade minSdkVersion to 23
+- Upgrade targetSdkVersion to 34
+- Fix compatibility with mapbox v11 min ndk version 23
+
+### 2.1.2-ndk23-alpha (minSdkVersion 23)
+- Upgrade minSdkVersion to 23
+- Upgrade targetSdkVersion to 34
+- Fix compatibility with mapbox min ndk version 23
+
 ### 2.1.2-alpha (minSdkVersion 21)
 - Upgrade minSdkVersion to 21
 - Upgrade targetSdkVersion to 34
