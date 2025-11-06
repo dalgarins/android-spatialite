@@ -53,7 +53,7 @@ android {
 }
 
 ext {
-    sqliteDistributionUrl = 'http://sqlite.org/2016/sqlite-amalgamation-3150100.zip'
+    sqliteDistributionUrl = 'https://www.sqlite.org/2025/sqlite-amalgamation-3490100.zip'
 }
 
 tasks.register('downloadSqlite', Download) {

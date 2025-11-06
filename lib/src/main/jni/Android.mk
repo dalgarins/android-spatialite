@@ -41,7 +41,7 @@ PROJ4_PATH := proj-4.8.0
 GEOS_PATH := geos-3.4.2
 ICONV_PATH := libiconv-1.13
 LZMA_PATH := xz-5.2.1
-XML2_PATH := libxml2-2.9.2
+XML2_PATH := libxml2-2.13.6
 FREEXL_PATH := freexl-1.0.2
 LWGEOM_PATH := liblwgeom-2.2.0
 
