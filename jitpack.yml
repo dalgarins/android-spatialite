@@ -1,7 +1,14 @@
 before_install:
+  - rm -rf lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6/test || true
+  - rm -rf lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6/result || true
+  - rm -rf lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6/os400 || true
   - sdk install java 17.0.11-jbr
   - sdk use java 17.0.11-jbr
   - curl -L -o ndk.zip "https://dl.google.com/android/repository/android-ndk-r27d-linux.zip" && unzip -o ndk.zip -d /opt/android-sdk-linux && rm ndk.zip
   - export JITPACK_NDK_HOME=/opt/android-sdk-linux/android-ndk-r27d && echo $JITPACK_NDK_HOME
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-36"
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;36.1.0"
+
+artifacts:
+  - path: lib/build/outputs/aar/lib-release.aar
+  - path: lib/build/publications/release/pom-default.xml
