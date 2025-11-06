@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.github.dalgarins'
-version = '2.2.3'
+version = '2.2.4'
 
 android {
     namespace 'org.spatialite'
@@ -87,7 +87,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.dalgarins'
             artifactId = 'android-spatialite'
-            version = '2.2.3'
+            version = '2.2.4'
 
             afterEvaluate {
                 from components.release

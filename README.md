@@ -97,7 +97,7 @@ Min SDK 21
 
 ## CHANGES
 
-### 2.2.3 (minSdkVersion 23)
+### 2.2.4 (minSdkVersion 23)
 - Upgrade SQLite to 3.49.1
 - Upgrade xml2 to 2.13.6
 
