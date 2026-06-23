@@ -1,0 +1,2 @@
+-keep class org.spatialite.database.** { *; }
+-keep class org.spatialite.** { *; }

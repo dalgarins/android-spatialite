@@ -145,6 +145,15 @@ Min SDK 21
 - Updated lzma to 5.2.1;
 - Updated FreeXL to 1.0.2;
 
+## Proguard configuration
+
+Add this line to your proguard rules file.
+
+```properties
+-keep class org.spatialite.database.** { *; }
+-keep class org.spatialite.** { *; }
+```
+
 ## CREDITS
 The main ideas used here were borrowed from:
 - https://github.com/requery/sqlite-android
