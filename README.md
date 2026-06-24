@@ -166,12 +166,18 @@ If you like this library, please consider...
 
 <a href="https://www.buymeacoffee.com/dalgarins" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
+## SPONSORS
+
+Thanks to our sponsors for supporting this project!
+
+- [![Tybion](https://github.com/Tybion.png?size=60)](https://github.com/Tybion) [@Tybion](https://github.com/Tybion)
+
+*Become a sponsor! Support via [Buy Me a Coffee](https://www.buymeacoffee.com/dalgarins) or [GitHub Sponsors](https://github.com/sponsors/dalgarins).*
+
 ## KNOWN PROJECTS USING THIS LIBRARY
 
-- [GeoWorld](https://play.google.com/store/apps/details?id=com.buildware.geocoord)
-- [GeoWorld PRO](https://play.google.com/store/apps/details?id=com.buildware.geoworld)
-- [Hema Explorer](https://play.google.com/store/apps/details?id=au.com.hemamaps.explorer)
-- [RadioCells.org Android Client](https://github.com/openbmap/radiocells-scanner-android)
+- [EVMap - EV chargers](https://play.google.com/store/apps/details?id=net.vonforst.evmap)
+- [Australian Geology Travel Maps](https://play.google.com/store/apps/details?id=solutions.trilobite.ausgeology)
 
 ## LICENSE
 Apache License 2.0
