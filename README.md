@@ -154,6 +154,11 @@ Add this line to your proguard rules file.
 -keep class org.spatialite.** { *; }
 ```
 
+Without these rules, you may encounter errors like:
+```
+Throwing new exception 'no "I" field "numArgs" in class "Lorg/spatialite/database/SQLiteCustomFunction;"
+```
+
 ## CREDITS
 The main ideas used here were borrowed from:
 - https://github.com/requery/sqlite-android
