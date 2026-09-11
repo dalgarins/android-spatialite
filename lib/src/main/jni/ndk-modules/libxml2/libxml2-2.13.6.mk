@@ -16,7 +16,10 @@ xml2_flags := \
 LOCAL_CFLAGS    := \
  $(xml2_flags)
 
+# config.h y libxml/xmlversion.h los genera ./configure, no estan en el repo
+# de upstream. Se mantienen aqui, fuera del submodulo.
 LOCAL_C_INCLUDES := \
+ $(LOCAL_PATH)/generated \
  $(LOCAL_PATH)/$(XML2_PATH)/include \
  $(XML2_PATH)
 
@@ -66,7 +69,9 @@ LOCAL_SRC_FILES := \
  $(XML2_PATH)/xpointer.c \
  $(XML2_PATH)/xzlib.c
 
-LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/$(XML2_PATH)/include
+LOCAL_EXPORT_C_INCLUDES := \
+ $(LOCAL_PATH)/generated \
+ $(LOCAL_PATH)/$(XML2_PATH)/include
 
 LOCAL_STATIC_LIBRARIES := iconv liblzma
 

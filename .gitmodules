@@ -1,3 +1,6 @@
 [submodule "lib/src/main/jni/ndk-modules/proj.4/proj-4.8.0/proj"]
 	path = lib/src/main/jni/ndk-modules/proj.4/proj-4.8.0/proj
 	url = https://github.com/OSGeo/PROJ.git
+[submodule "lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6"]
+	path = lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6
+	url = https://gitlab.gnome.org/GNOME/libxml2.git
