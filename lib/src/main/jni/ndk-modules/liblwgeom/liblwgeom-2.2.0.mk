@@ -40,6 +40,8 @@ LOCAL_MODULE    := liblwgeom
 LOCAL_C_INCLUDES := \
  $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH)/include \
  $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH)/libcharset/include \
+ $(NDK_MODULES_PATH)/geos/generated/include \
+ $(NDK_MODULES_PATH)/geos/generated/capi \
  $(NDK_MODULES_PATH)/geos/$(GEOS_PATH)/include \
  $(NDK_MODULES_PATH)/geos/$(GEOS_PATH)/capi \
  $(LOCAL_PATH)/$(JSONC_PATH) \

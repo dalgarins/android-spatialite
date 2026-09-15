@@ -7,3 +7,6 @@
 [submodule "lib/src/main/jni/ndk-modules/liblzma/xz-5.2.1"]
 	path = lib/src/main/jni/ndk-modules/liblzma/xz-5.2.1
 	url = https://github.com/tukaani-project/xz.git
+[submodule "lib/src/main/jni/ndk-modules/geos/geos-3.4.2"]
+	path = lib/src/main/jni/ndk-modules/geos/geos-3.4.2
+	url = https://github.com/libgeos/geos.git

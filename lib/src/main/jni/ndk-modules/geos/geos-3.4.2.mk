@@ -296,17 +296,18 @@ LOCAL_CFLAGS += \
     -DHAVE_LONG_LONG_INT_64
 
 LOCAL_C_INCLUDES := \
+	$(LOCAL_PATH)/generated/include \
+	$(LOCAL_PATH)/generated/capi \
 	$(LOCAL_PATH)/$(GEOS_PATH)/include
 
 LOCAL_EXPORT_C_INCLUDES := \
+    $(LOCAL_PATH)/generated/include \
+    $(LOCAL_PATH)/generated/capi \
     $(LOCAL_PATH)/$(GEOS_PATH)/include \
     $(LOCAL_PATH)/$(GEOS_PATH)/capi
 
 LOCAL_SRC_FILES := \
     $(GEOS_FILES) \
     src-io-CLocalizer.cpp
-
-TARGET-process-src-files-tags += $(call add-src-files-target-cflags, \
-   geos/src/io/WKTReader.cpp, -include cctype)
 
 include $(BUILD_STATIC_LIBRARY)
