@@ -4,3 +4,6 @@
 [submodule "lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6"]
 	path = lib/src/main/jni/ndk-modules/libxml2/libxml2-2.13.6
 	url = https://gitlab.gnome.org/GNOME/libxml2.git
+[submodule "lib/src/main/jni/ndk-modules/liblzma/xz-5.2.1"]
+	path = lib/src/main/jni/ndk-modules/liblzma/xz-5.2.1
+	url = https://github.com/tukaani-project/xz.git

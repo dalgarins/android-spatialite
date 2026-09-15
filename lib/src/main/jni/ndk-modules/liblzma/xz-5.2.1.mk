@@ -16,6 +16,7 @@ LOCAL_CFLAGS    := \
  $(lzma_flags)
 
 LOCAL_C_INCLUDES := \
+ $(LOCAL_PATH)/generated \
  $(LOCAL_PATH)/$(LZMA_PATH)/src/common \
  $(LOCAL_PATH)/$(LZMA_PATH)/src/liblzma/api \
  $(LOCAL_PATH)/$(LZMA_PATH)/src/liblzma/check \
