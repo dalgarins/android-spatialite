@@ -10,3 +10,6 @@
 [submodule "lib/src/main/jni/ndk-modules/geos/geos-3.4.2"]
 	path = lib/src/main/jni/ndk-modules/geos/geos-3.4.2
 	url = https://github.com/libgeos/geos.git
+[submodule "lib/src/main/jni/ndk-modules/libiconv/libiconv-1.13"]
+	path = lib/src/main/jni/ndk-modules/libiconv/libiconv-1.13
+	url = https://git.savannah.gnu.org/git/libiconv.git

@@ -8,9 +8,13 @@ LOCAL_CFLAGS    := \
     -D_ANDROID \
     -DLIBDIR=\"$(LOCAL_PATH)/$(ICONV_PATH)/libcharset/lib\" \
     -DBUILDING_LIBICONV \
-    -DIN_LIBRARY
+    -DIN_LIBRARY \
+    -iquote $(LOCAL_PATH)/generated/lib
 
 LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/generated \
+    $(LOCAL_PATH)/generated/include \
+    $(LOCAL_PATH)/generated/libcharset/include \
     $(LOCAL_PATH)/$(ICONV_PATH) \
     $(LOCAL_PATH)/$(ICONV_PATH)/include \
     $(LOCAL_PATH)/$(ICONV_PATH)/lib \
@@ -19,9 +23,12 @@ LOCAL_C_INCLUDES := \
 LOCAL_SRC_FILES := \
     $(ICONV_PATH)/lib/iconv.c \
     $(ICONV_PATH)/lib/relocatable.c \
-    $(ICONV_PATH)/libcharset/lib/localcharset.c
-    
+    libcharset-lib-localcharset.c
+
 LOCAL_EXPORT_C_INCLUDES := \
+    $(LOCAL_PATH)/generated \
+    $(LOCAL_PATH)/generated/srclib \
+    $(LOCAL_PATH)/generated/include \
     $(LOCAL_PATH)/$(ICONV_PATH) \
     $(LOCAL_PATH)/$(ICONV_PATH)/srclib \
     $(LOCAL_PATH)/$(ICONV_PATH)/include

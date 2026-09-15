@@ -38,6 +38,8 @@ LOCAL_MODULE    := liblwgeom
  $(liblwgeom_flags)
 
 LOCAL_C_INCLUDES := \
+ $(NDK_MODULES_PATH)/libiconv/generated/include \
+ $(NDK_MODULES_PATH)/libiconv/generated/libcharset/include \
  $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH)/include \
  $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH)/libcharset/include \
  $(NDK_MODULES_PATH)/geos/generated/include \
