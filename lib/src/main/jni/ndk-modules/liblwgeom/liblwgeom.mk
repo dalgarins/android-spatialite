@@ -48,7 +48,7 @@ LOCAL_C_INCLUDES := \
  $(NDK_MODULES_PATH)/geos/$(GEOS_PATH)/capi \
  $(LOCAL_PATH)/$(JSONC_PATH) \
  $(LOCAL_PATH)/$(LWGEOM_PATH) \
- $(NDK_MODULES_PATH)/proj.4/$(PROJ4_PATH)/proj/src
+ $(NDK_MODULES_PATH)/proj.4/$(PROJ4_PATH)/src
 LOCAL_SRC_FILES := \
  $(LWGEOM_PATH)/box2d.c \
  $(LWGEOM_PATH)/bytebuffer.c \

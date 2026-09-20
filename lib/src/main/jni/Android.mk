@@ -36,14 +36,14 @@ include $(BUILD_SHARED_LIBRARY)
 
 NDK_MODULES_PATH := $(LOCAL_PATH)/ndk-modules
 
-SPATIALITE_PATH := libspatialite-4.3.0a
-PROJ4_PATH := proj-4.8.0
-GEOS_PATH := geos-3.4.2
-ICONV_PATH := libiconv-1.13
-LZMA_PATH := xz-5.2.1
-XML2_PATH := libxml2-2.13.6
-FREEXL_PATH := freexl-1.0.2
-LWGEOM_PATH := liblwgeom-2.2.0
+SPATIALITE_PATH := libspatialite
+PROJ4_PATH := proj
+GEOS_PATH := geos
+ICONV_PATH := libiconv
+LZMA_PATH := xz
+XML2_PATH := libxml2
+FREEXL_PATH := freexl
+LWGEOM_PATH := liblwgeom
 
 include $(NDK_MODULES_PATH)/sqlite/sqlite.mk
 include $(NDK_MODULES_PATH)/libspatialite/$(SPATIALITE_PATH).mk
