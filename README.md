@@ -76,18 +76,55 @@ android {
 
 ### What libraries are packaged currently?
 
-- SQLite 3.49.1
-- Spatialite 4.3.0a
-- GEOS 3.4.2
-- Proj4 4.8.0
-- lzma 5.2.1
-- iconv 1.13
-- xml2 2.13.6
-- freexl 1.0.2
-- lwgeom 2.2.0
+| Library | Version | Source |
+|---|---|---|
+| SQLite | 3.49.1 | copied (amalgamation) |
+| Spatialite | 4.3.0a | copied |
+| GEOS | 3.4.2 | submodule — [libgeos/geos](https://github.com/libgeos/geos) |
+| Proj4 | 4.8.0+ (commit `b958c66`) | submodule — [OSGeo/PROJ](https://github.com/OSGeo/PROJ) |
+| lzma | 5.2.1 | submodule — [tukaani-project/xz](https://github.com/tukaani-project/xz) |
+| iconv | 1.13.1 | submodule — [GNU libiconv](https://git.savannah.gnu.org/git/libiconv.git) |
+| xml2 | 2.13.9 | submodule — [GNOME/libxml2](https://gitlab.gnome.org/GNOME/libxml2) |
+| freexl | 1.0.2 | copied (upstream uses Fossil, not Git) |
+| lwgeom | 2.2.x (commit `21df9ef8`) | copied (PostGIS `stable-2.2`) |
+
+*Copied* means the sources live in this repository. *Submodule* means they are fetched from
+upstream, pinned to the commit recorded here — see [BUILDING FROM SOURCE](#building-from-source).
 
 ## REQUIREMENTS
-Min SDK 21
+Min SDK 23
+
+## BUILDING FROM SOURCE
+
+Some of the native dependencies are Git submodules, so a plain `git clone` leaves their
+directories empty and the NDK build fails with missing headers.
+
+Clone the repository with them:
+```
+git clone --recurse-submodules https://github.com/dalgarins/android-spatialite.git
+```
+
+If you already cloned it without them:
+```
+git submodule update --init --recursive
+```
+
+Then build:
+```
+./gradlew :lib:assembleRelease
+```
+
+Which dependencies are submodules and which are copied into the repository is listed in
+[What libraries are packaged currently?](#what-libraries-are-packaged-currently).
+
+Each of those modules has a `generated/` directory next to its submodule holding the headers
+that `./configure` produces (`config.h` and friends). They are not part of the upstream
+repositories, so they are versioned here and must be updated whenever the submodule is moved
+to a new release.
+
+Note that `git checkout` and `git switch` do not update submodule working trees. After
+changing branches, run `git submodule update --recursive` to keep the sources in sync with
+the commit they are pinned to.
 
 ## MIGRATION TO 2.0+
 
