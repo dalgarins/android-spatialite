@@ -2,7 +2,7 @@ import org.gradle.internal.os.OperatingSystem
 
 plugins {
     alias(libs.plugins.android.library)
-    id("de.undercouch.download") version "5.6.0"
+    id("de.undercouch.download") version "5.7.0"
     id 'maven-publish'
 }
 
@@ -10,12 +10,12 @@ group = 'com.github.dalgarins'
 version = '2.2.1'
 
 android {
-    namespace 'org.spatialite'
-    compileSdk 37
-    ndkVersion '27.3.13750724'
+    namespace = 'org.spatialite'
+    compileSdk = 37
+    ndkVersion = '27.3.13750724'
 
     defaultConfig {
-        minSdk 23
+        minSdk = 23
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
