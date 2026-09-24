@@ -7,7 +7,6 @@ before_install:
   - curl -L -o ndk.zip "https://dl.google.com/android/repository/android-ndk-r27d-linux.zip" && unzip -o ndk.zip -d /opt/android-sdk-linux && rm ndk.zip
   - export JITPACK_NDK_HOME=/opt/android-sdk-linux/android-ndk-r27d && echo $JITPACK_NDK_HOME
   - yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-37"
-  - yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;37.0.0"
 
 artifacts:
   - path: lib/build/outputs/aar/lib-release.aar

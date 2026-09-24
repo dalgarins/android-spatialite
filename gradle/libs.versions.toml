@@ -1,6 +1,6 @@
 [versions]
-agp = "8.13.0"
-mavenPublish = "0.35.0"
+agp = "9.2.1"
+mavenPublish = "0.37.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"

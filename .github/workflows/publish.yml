@@ -51,7 +51,6 @@ jobs:
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
             "platforms;android-37" \
-            "build-tools;37.0.0" \
             "ndk;27.3.13750724"
 
       - name: Publish and release to Maven Central

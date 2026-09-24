@@ -1,4 +1,6 @@
 import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.SourcesJar
 
 plugins {
     alias(libs.plugins.android.library)
@@ -34,6 +36,8 @@ tasks.matching { it.name.startsWith('publish') }.configureEach {
 android {
     namespace = 'org.spatialite'
     compileSdk = 37
+    // Must match the build-tools installed by jitpack.yml and .github/workflows/publish.yml.
+    buildToolsVersion = '37.0.0'
     ndkVersion = '27.3.13750724'
 
     defaultConfig {
@@ -56,8 +60,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     sourceSets.main.jni.srcDirs = ['src/main/none']
@@ -99,8 +103,7 @@ dependencies {
 }
 
 mavenPublishing {
-    // variant, sources jar, javadoc jar
-    configure(new AndroidSingleVariantLibrary('release', true, true))
+    configure(new AndroidSingleVariantLibrary(new JavadocJar.Javadoc(), new SourcesJar.Sources(), 'release'))
 
     coordinates(project.group.toString(), 'android-spatialite', project.version.toString())
 
