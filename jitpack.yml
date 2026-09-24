@@ -1,4 +1,6 @@
 before_install:
+  - rm -rf lib/src/main/jni/ndk-modules/libspatialite/libspatialite/test || true
+  - rm -rf lib/src/main/jni/ndk-modules/geos/geos/tests/xmltester/tests || true
   - rm -rf lib/src/main/jni/ndk-modules/libxml2/libxml2/test || true
   - rm -rf lib/src/main/jni/ndk-modules/libxml2/libxml2/result || true
   - rm -rf lib/src/main/jni/ndk-modules/libxml2/libxml2/os400 || true
