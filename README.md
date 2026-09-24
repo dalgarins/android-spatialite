@@ -82,9 +82,8 @@ android {
 | Spatialite | 4.3.0a | copied |
 | GEOS | 3.4.2 | submodule — [libgeos/geos](https://github.com/libgeos/geos) |
 | Proj4 | 4.8.0+ (commit `b958c66`) | submodule — [OSGeo/PROJ](https://github.com/OSGeo/PROJ) |
-| lzma | 5.2.1 | submodule — [tukaani-project/xz](https://github.com/tukaani-project/xz) |
 | iconv | 1.13.1 | submodule — [GNU libiconv](https://git.savannah.gnu.org/git/libiconv.git) |
-| xml2 | 2.13.9 | submodule — [GNOME/libxml2](https://gitlab.gnome.org/GNOME/libxml2) |
+| xml2 | 2.15.2 | submodule — [GNOME/libxml2](https://gitlab.gnome.org/GNOME/libxml2) |
 | freexl | 1.0.2 | copied (upstream uses Fossil, not Git) |
 | lwgeom | 2.2.x (commit `21df9ef8`) | copied (PostGIS `stable-2.2`) |
 

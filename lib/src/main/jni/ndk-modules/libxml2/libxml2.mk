@@ -37,16 +37,13 @@ LOCAL_SRC_FILES := \
  $(XML2_PATH)/hash.c \
  $(XML2_PATH)/HTMLparser.c \
  $(XML2_PATH)/HTMLtree.c \
- $(XML2_PATH)/legacy.c \
  $(XML2_PATH)/list.c \
- $(XML2_PATH)/nanoftp.c \
  $(XML2_PATH)/nanohttp.c \
  $(XML2_PATH)/parser.c \
  $(XML2_PATH)/parserInternals.c \
  $(XML2_PATH)/pattern.c \
  $(XML2_PATH)/relaxng.c \
  $(XML2_PATH)/SAX2.c \
- $(XML2_PATH)/SAX.c \
  $(XML2_PATH)/schematron.c \
  $(XML2_PATH)/threads.c \
  $(XML2_PATH)/tree.c \
@@ -63,17 +60,15 @@ LOCAL_SRC_FILES := \
  $(XML2_PATH)/xmlschemas.c \
  $(XML2_PATH)/xmlschemastypes.c \
  $(XML2_PATH)/xmlstring.c \
- $(XML2_PATH)/xmlunicode.c \
  $(XML2_PATH)/xmlwriter.c \
  $(XML2_PATH)/xpath.c \
- $(XML2_PATH)/xpointer.c \
- $(XML2_PATH)/xzlib.c
+ $(XML2_PATH)/xpointer.c
 
 LOCAL_EXPORT_C_INCLUDES := \
  $(LOCAL_PATH)/generated \
  $(LOCAL_PATH)/$(XML2_PATH)/include
 
-LOCAL_STATIC_LIBRARIES := iconv liblzma
+LOCAL_STATIC_LIBRARIES := iconv
 
 include $(BUILD_STATIC_LIBRARY)
 

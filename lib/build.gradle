@@ -11,7 +11,7 @@ version = '2.2.1'
 
 android {
     namespace 'org.spatialite'
-    compileSdk 36
+    compileSdk 37
     ndkVersion '27.3.13750724'
 
     defaultConfig {
@@ -41,6 +41,7 @@ android {
     publishing {
         singleVariant('release') {
             withSourcesJar()
+            withJavadocJar()
         }
     }
 

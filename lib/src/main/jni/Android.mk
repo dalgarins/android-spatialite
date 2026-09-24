@@ -40,7 +40,6 @@ SPATIALITE_PATH := libspatialite
 PROJ4_PATH := proj
 GEOS_PATH := geos
 ICONV_PATH := libiconv
-LZMA_PATH := xz
 XML2_PATH := libxml2
 FREEXL_PATH := freexl
 LWGEOM_PATH := liblwgeom
@@ -50,7 +49,6 @@ include $(NDK_MODULES_PATH)/libspatialite/$(SPATIALITE_PATH).mk
 include $(NDK_MODULES_PATH)/proj.4/$(PROJ4_PATH).mk
 include $(NDK_MODULES_PATH)/geos/$(GEOS_PATH).mk
 include $(NDK_MODULES_PATH)/libiconv/$(ICONV_PATH).mk
-include $(NDK_MODULES_PATH)/liblzma/$(LZMA_PATH).mk
 include $(NDK_MODULES_PATH)/libxml2/$(XML2_PATH).mk
 include $(NDK_MODULES_PATH)/freexl/$(FREEXL_PATH).mk
 include $(NDK_MODULES_PATH)/liblwgeom/$(LWGEOM_PATH).mk
