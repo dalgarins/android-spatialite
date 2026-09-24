@@ -1,4 +1,5 @@
-[![Release](https://jitpack.io/v/com.github.dalgarins/android-spatialite.svg)](https://jitpack.io/v/com.github.dalgarins/android-spatialite.svg)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.dalgarins/android-spatialite)](https://central.sonatype.com/artifact/io.github.dalgarins/android-spatialite)
+[![JitPack](https://jitpack.io/v/com.github.dalgarins/android-spatialite.svg)](https://jitpack.io/#com.github.dalgarins/android-spatialite)
 
 # android-spatialite 
 
@@ -17,6 +18,32 @@ this is a fork from [android-spatialite](https://github.com/sevar83/android-spat
 If you know basic *SQLite*, there's almost nothing to learn. The API is 99% the same as the Android *SQLite* API (as of API level 15). The main difference is the packaging. Use `org.spatialite.database.XYZ` instead of `android.database.sqlite.XYZ` and `org.spatialite.XYZ` instead of `android.database.XYZ`. Same applies to the other classes - all platform `SQLiteXYZ` classes have their *Spatialite* versions.
 
 ### Gradle
+
+> [!IMPORTANT]
+> Starting with **2.2.3** the library is published to **Maven Central** under the new
+> group id `io.github.dalgarins`. This is the recommended way to use it.
+>
+> For now, every release is **also** available on **JitPack** as `com.github.dalgarins`
+> (the only option for **2.2.1 and earlier**). JitPack is deprecated and will stop
+> receiving new versions in a future release, so please migrate to Maven Central.
+
+| Versions | Repository | Coordinates | Status |
+|---|---|---|---|
+| 2.2.3 and later | Maven Central | `io.github.dalgarins:android-spatialite` | Recommended |
+| 2.2.3 and later | JitPack | `com.github.dalgarins:android-spatialite` | Deprecated, will be removed |
+| 2.2.1 and earlier | JitPack | `com.github.dalgarins:android-spatialite` | Legacy |
+
+#### Maven Central (2.2.3 and later)
+
+Make sure `mavenCentral()` is in your repositories (it is by default in new Android projects),
+then add the dependency to your module's `build.gradle`:
+
+```
+implementation 'io.github.dalgarins:android-spatialite:<LATEST_VERSION>'
+```
+
+#### JitPack (deprecated)
+
 1) Have this in your project's `build.gradle`:
 
 ```
@@ -30,8 +57,14 @@ allprojects {
 
 2) Add the following to your module's `build.gradle`:
 ```
-implementation 'com.github.dalgarins:android-spatialite:<LATEST_VERSION>'
+implementation 'com.github.dalgarins:android-spatialite:<VERSION>'
 ```
+
+#### Migrating from JitPack to Maven Central
+
+Change the group id from `com.github.dalgarins` to `io.github.dalgarins` and use version
+2.2.3 or later. The Java API (`org.spatialite.*`) is unchanged. You can remove the JitPack
+repository if no other dependency needs it.
 
 ## EXAMPLE CODE
 There is a very simple and useless example in the `app` module. Another example is the [SpatiAtlas](https://github.com/sevar83/SpatiAtlas) experiment.
@@ -132,6 +165,13 @@ the commit they are pinned to.
 3. Replace all occasions of `import org.spatialite.database.SQLite***Exception;` with `import android.database.sqlite.SQLite***Exception;`
 
 ## CHANGES
+
+### 2.2.3 (minSdkVersion 23)
+- Published to Maven Central as `io.github.dalgarins:android-spatialite`. Still available on JitPack as `com.github.dalgarins:android-spatialite` (deprecated, will be removed in a future release)
+- Native dependencies (PROJ, GEOS, iconv, libxml2) are now git submodules pinned to upstream releases
+- Upgrade xml2 to 2.15.2
+- Remove lzma dependency
+- Link the C++ runtime statically (`c++_static`): `libc++_shared.so` is no longer shipped
 
 ### 2.2.1 (minSdkVersion 23)
 - Upgrade SQLite to 3.49.1

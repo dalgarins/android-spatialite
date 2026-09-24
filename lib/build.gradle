@@ -1,13 +1,35 @@
-import org.gradle.internal.os.OperatingSystem
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 
 plugins {
     alias(libs.plugins.android.library)
     id("de.undercouch.download") version "5.7.0"
-    id 'maven-publish'
+    alias(libs.plugins.maven.publish)
 }
 
-group = 'com.github.dalgarins'
-version = '2.2.1'
+// Distribution (both channels are published for now; JitPack will be dropped
+// in a future release):
+// - Maven Central: io.github.dalgarins:android-spatialite, from 2.2.3 on.
+//   Published by .github/workflows/publish.yml when a GitHub Release is
+//   published; the version is taken from the release tag (-PVERSION_NAME).
+// - JitPack: com.github.dalgarins:android-spatialite, built on demand from the
+//   tag (JitPack sets JITPACK=true and VERSION=<tag>). Legacy channel, and the
+//   only one for 2.2.1 and earlier.
+def isJitpack = System.getenv('JITPACK') == 'true'
+group = isJitpack ? 'com.github.dalgarins' : 'io.github.dalgarins'
+
+// No default version: publishing without one fails (see the check below), while
+// regular builds and IDE syncs still work as 'unspecified'.
+def versionName = providers.gradleProperty('VERSION_NAME').getOrNull()
+        ?: (isJitpack ? System.getenv('VERSION') : null)
+version = versionName ?: 'unspecified'
+
+tasks.matching { it.name.startsWith('publish') }.configureEach {
+    doFirst {
+        if (!versionName) {
+            throw new GradleException("VERSION_NAME is required to publish: run with -PVERSION_NAME=<version>")
+        }
+    }
+}
 
 android {
     namespace = 'org.spatialite'
@@ -36,13 +58,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
-    }
-
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-            withJavadocJar()
-        }
     }
 
     sourceSets.main.jni.srcDirs = ['src/main/none']
@@ -83,16 +98,51 @@ dependencies {
     androidTestImplementation libs.espresso.core
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.dalgarins'
-            artifactId = 'android-spatialite'
-            version = '2.2.1'
+mavenPublishing {
+    // variant, sources jar, javadoc jar
+    configure(new AndroidSingleVariantLibrary('release', true, true))
 
-            afterEvaluate {
-                from components.release
+    coordinates(project.group.toString(), 'android-spatialite', project.version.toString())
+
+    publishToMavenCentral(true)
+
+    // Only sign when a key is available, so JitPack and local builds work without GPG.
+    if (providers.gradleProperty('signingInMemoryKey').isPresent()) {
+        signAllPublications()
+    }
+
+    pom {
+        name = "android-spatialite"
+        description = "The Spatialite database ported for Android"
+        url = "https://github.com/dalgarins/android-spatialite"
+        licenses {
+            license {
+                name = 'The Apache License, Version 2.0'
+                url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
             }
+        }
+        scm {
+            connection = 'scm:git:git://github.com/dalgarins/android-spatialite.git'
+            developerConnection = 'scm:git:ssh://git@github.com/dalgarins/android-spatialite.git'
+            url = 'https://github.com/dalgarins/android-spatialite'
+        }
+        developers {
+            developer {
+                id = 'dalgarins'
+                name = 'Darwin Algarin'
+                email = 'dalgarins@anbora.co'
+                organization = "Anbora labs"
+                organizationUrl = "https://labs.anbora.co"
+            }
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url = uri(layout.buildDirectory.dir("repos/releases"))
         }
     }
 }
