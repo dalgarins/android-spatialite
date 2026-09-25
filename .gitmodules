@@ -1,0 +1,12 @@
+[submodule "lib/src/main/jni/ndk-modules/proj.4/proj"]
+	path = lib/src/main/jni/ndk-modules/proj.4/proj
+	url = https://github.com/OSGeo/PROJ.git
+[submodule "lib/src/main/jni/ndk-modules/libxml2/libxml2"]
+	path = lib/src/main/jni/ndk-modules/libxml2/libxml2
+	url = https://gitlab.gnome.org/GNOME/libxml2.git
+[submodule "lib/src/main/jni/ndk-modules/geos/geos"]
+	path = lib/src/main/jni/ndk-modules/geos/geos
+	url = https://github.com/libgeos/geos.git
+[submodule "lib/src/main/jni/ndk-modules/libiconv/libiconv"]
+	path = lib/src/main/jni/ndk-modules/libiconv/libiconv
+	url = https://git.savannah.gnu.org/git/libiconv.git
