@@ -46,12 +46,11 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Install Android SDK components
-        run: |
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
-          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
-            "platforms;android-37" \
-            "ndk;27.3.13750724"
+      # The Android Gradle plugin downloads the platform (compileSdk), build-tools
+      # (buildToolsVersion) and NDK (ndkVersion) it needs; it only requires the
+      # SDK licenses to be accepted.
+      - name: Accept Android SDK licenses
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
 
       - name: Publish and release to Maven Central
         env:
